@@ -15,7 +15,7 @@ export class ConfirmModalComponent implements OnInit {
   }
 
   deleteProject(){
-    this.data.deleteProject (this.key);
+    //this.data.deleteProject (this.key);
     this.activeModal.close(this.key);
    }
    closeModal(){

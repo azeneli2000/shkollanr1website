@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeshqipComponent } from './homeshqip/homeshqip.component';
 import { HomeanglishtComponent } from './homeanglisht/homeanglisht.component';
@@ -21,6 +22,11 @@ import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 import { SettingsModalComponent } from './settings-modal/settings-modal.component';
 import { GaleryAdmimComponent } from './galery-admim/galery-admim.component';
 import { LoginComponent } from './login/login.component';
+import{ViewerComponent} from './viewer/viewer.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { Ng2ImgMaxModule } from 'ng2-img-max';
+import { StafiCikliUletComponent } from './stafi-cikli-ulet/stafi-cikli-ulet.component'; 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +39,9 @@ import { LoginComponent } from './login/login.component';
     SettingsModalComponent,
     GaleryAdmimComponent,
     LoginComponent,
+    ViewerComponent,
+    StafiCikliUletComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -41,7 +50,10 @@ import { LoginComponent } from './login/login.component';
     LightboxModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    FormsModule
+    FormsModule,
+    PdfViewerModule,
+    Ng2ImgMaxModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],

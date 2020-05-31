@@ -4,6 +4,7 @@ import { auth } from  'firebase/app';
 import { AngularFireAuth } from  "@angular/fire/auth";
 import { User } from  'firebase';
 import { Observable } from 'rxjs';
+import { disableDebugTools } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'

@@ -3,7 +3,7 @@
 
 
 
-<div class="container">
+<div class="container" >
     <button type="button" class="btn btn-secondary" (click)="addNewImage()">
         <svg class="bi bi-images" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M12.002 4h-10a1 1 0 00-1 1v8a1 1 0 001 1h10a1 1 0 001-1V5a1 1 0 00-1-1zm-10-1a2 2 0 00-2 2v8a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2h-10z" clip-rule="evenodd"/>
@@ -37,7 +37,7 @@
                             <path fill-rule="evenodd" d="M4.502 7a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" clip-rule="evenodd" />
                           </svg>
                         </label>
-                        <input class="mt-auto" id={{image.key}} type="file" #userPhoto (change)="onFileSelected($event)" name="image"
+                        <input class="mt-auto" id={{image.key}} type="file" #userPhoto (change)="onFileSelectedReducedImage($event);onFileSelected($event);" name="image"
                           autocomplete="off" />
                       </div>
               

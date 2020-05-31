@@ -10,6 +10,7 @@ import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component'
 import { SettingsModalComponent } from '../settings-modal/settings-modal.component';
 import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
+import { Ng2ImgMaxService } from 'ng2-img-max';
 
 @Component({
   selector: 'app-admin',
@@ -22,7 +23,7 @@ export class AdminComponent implements OnInit {
   uploadProgress: number = 0;
   currentProjectId: string = '';
   projects: any = [];
-
+  reducedImage;
   selectedFile: File = null;
   fb;
   downloadURL: Observable<string>;
@@ -36,6 +37,7 @@ export class AdminComponent implements OnInit {
     projektiAnglishtTitulli: '',
     projektiAnglishtDetaje: '',
     imageUrl: '',
+    pdfUrl : ''
   };
 
 
@@ -56,12 +58,26 @@ export class AdminComponent implements OnInit {
   profili ;
   profiliAnglisht;
 
+
+cikli0;
+cikli0Anglisht;
+cikli1;
+cikli1Anglisht;
+cikli2;
+cikli2Anglisht;
+cikli3;
+cikli3Anglisht;
+bursat;
+bursatAnglisht;
+srcBursat
+
   constructor(
     private data: GetDataService,
     private storage: AngularFireStorage,
     private modalService: NgbModal,
     private router : Router,
-    private auth : AuthService
+    private auth : AuthService,
+    private ng2ImgMaxService: Ng2ImgMaxService
   ) {}
  
 
@@ -84,25 +100,93 @@ export class AdminComponent implements OnInit {
     });
     this.data.getSettings().subscribe((s)=>{
 
-   this.about = s.find((s)=>s.key=="about").payload.val()['teksti'];
-   this.aboutAnglisht = s.find((s)=>s.key=="about").payload.val()['tekstiAnglisht'];
-
-   this.certifikime = s.find((s)=>s.key=="certifikime").payload.val()['teksti'];
-   this.certifikimeAnglisht = s.find((s)=>s.key=="certifikime").payload.val()['tekstiAnglisht'];
-
-   this.licensat = s.find((s)=>s.key=="licensat").payload.val()['teksti'];
-   this.licensatAnglisht = s.find((s)=>s.key=="licensat").payload.val()['tekstiAnglisht'];
-
-   this.profili = s.find((s)=>s.key=="profili").payload.val()['teksti'];
-   this.profiliAnglisht = s.find((s)=>s.key=="profili").payload.val()['tekstiAnglisht'];
-  
-   this.partneret = s.find((s)=>s.key=="partneret").payload.val()['teksti'];
-   this.partneretAnglisht = s.find((s)=>s.key=="partneret").payload.val()['tekstiAnglisht'];
-
+      this.about = s.find((s)=>s.key=="about").payload.val()['teksti'];
+      this.aboutAnglisht = s.find((s)=>s.key=="about").payload.val()['tekstiAnglisht'];
+   
+      this.cikli0 = s.find((s)=>s.key=="cikli0").payload.val()['teksti'];
+      this.cikli0Anglisht = s.find((s)=>s.key=="cikli0").payload.val()['tekstiAnglisht'];
+   
+      this.cikli1 = s.find((s)=>s.key=="cikli1").payload.val()['teksti'];
+      this.cikli1Anglisht = s.find((s)=>s.key=="cikli1").payload.val()['tekstiAnglisht'];
+   
+      this.cikli2 = s.find((s)=>s.key=="cikli2").payload.val()['teksti'];
+      this.cikli2Anglisht = s.find((s)=>s.key=="cikli2").payload.val()['tekstiAnglisht'];
+     
+      this.cikli3 = s.find((s)=>s.key=="cikli3").payload.val()['teksti'];
+      this.cikli3Anglisht = s.find((s)=>s.key=="cikli3").payload.val()['tekstiAnglisht'];
+      this.bursat = s.find((s)=>s.key=="bursat").payload.val()['teksti'];
+      this.bursatAnglisht = s.find((s)=>s.key=="bursat").payload.val()['tekstiAnglisht'];
     })
   }
 
   onFileSelected(event) {
+    // this.currentProjectId = event.target.id;
+    // var n = Date.now();
+    // const file = event.target.files[0];
+    // const filePath = `RoomsImages/${n}`;
+    // const fileRef = this.storage.ref(filePath);
+    // const task = this.storage.upload(`RoomsImages/${n}`, file);
+    // task
+    //   .snapshotChanges()
+    //   .pipe(
+    //     finalize(() => {
+    //       this.downloadURL = fileRef.getDownloadURL();
+    //       this.downloadURL.subscribe((url) => {
+    //         if (url) {
+    //           this.fb = url;
+    //           this.data.updateProjectImage(event.target.id, url);
+    //         }
+    //       });
+    //     })
+    //   )
+    //   .subscribe((url) => {
+    //     if (url) {
+    //       //this.uploadProgress= task.percentageChanges();
+
+    //       task.percentageChanges().subscribe((a) => (this.uploadProgress = a));
+    //     }
+    //   });
+    this.currentProjectId = event.target.id;
+    var n = Date.now();
+    const file = event.target.files[0];
+    this.ng2ImgMaxService.compressImage(file,0.3,true).subscribe( result =>{
+      this.reducedImage=result;
+      console.log("Resized :", this.reducedImage);
+      const filePath = `RoomsImages/${n}`;
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(`RoomsImages/${n}`, this.reducedImage);
+    task
+      .snapshotChanges()
+      .pipe(
+        finalize(() => {
+          this.downloadURL = fileRef.getDownloadURL();
+          this.downloadURL.subscribe((url) => {
+            if (url) {
+              this.fb = url;
+              this.data.updateProjectImage(event.target.id, url,filePath);
+            }
+          });
+        })
+      )
+      .subscribe((url) => {
+        if (url) {
+          //this.uploadProgress= task.percentageChanges();
+
+          task.percentageChanges().subscribe((a) => (this.uploadProgress = a));
+        }
+      });
+     }, error => {
+          console.error("Resize error:", error);
+     }
+  );
+    
+  
+
+  }
+
+
+
+  onFileSelectedPdfBursat(event) {
     this.currentProjectId = event.target.id;
     var n = Date.now();
     const file = event.target.files[0];
@@ -117,7 +201,7 @@ export class AdminComponent implements OnInit {
           this.downloadURL.subscribe((url) => {
             if (url) {
               this.fb = url;
-              this.data.updateProjectImage(event.target.id, url);
+              this.data.updateBursatPdf(event.target.id, url);
             }
           });
         })
@@ -130,6 +214,37 @@ export class AdminComponent implements OnInit {
         }
       });
   }
+
+  onFileSelectedPdfProjektet(event) {
+  let projectId = event.target.id.substring(0, event.target.id.length - 3);
+
+    var n = Date.now();
+    const file = event.target.files[0];
+    const filePath = `RoomsImages/${n}`;
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(`RoomsImages/${n}`, file);
+    task
+      .snapshotChanges()
+      .pipe(
+        finalize(() => {
+          this.downloadURL = fileRef.getDownloadURL();
+          this.downloadURL.subscribe((url) => {
+            if (url) {
+              this.fb = url;
+              this.data.updateProjektePdf(projectId, url);
+            }
+          });
+        })
+      )
+      .subscribe((url) => {
+        if (url) {
+          //this.uploadProgress= task.percentageChanges();
+
+          task.percentageChanges().subscribe((a) => (this.uploadProgress = a));
+        }
+      });
+  }
+
   openModal(key, img, titulli) {
     this.modalData.titulli = titulli;
     const modalRef = this.modalService.open(ModalComponent);
@@ -160,11 +275,13 @@ export class AdminComponent implements OnInit {
   }
 
   openModalConfirm(key) {
+    debugger
     const modalRef = this.modalService.open(ConfirmModalComponent);
     modalRef.componentInstance.key = key;
 
     modalRef.result.then((result) => {
       if (result) {
+        this.data.deleteProject(key);
       }
     });
   }
@@ -193,6 +310,8 @@ export class AdminComponent implements OnInit {
     this.auth.logout()
   }
   deleteProject(key) {
+    
+
     this.data.deleteProject(key);
   }
 }

@@ -1,11 +1,12 @@
 export const environment = {
   production: true,
-  firebaseConfig : {    apiKey: "AIzaSyD-6zE9FHjSPvKnDoNbjttBCpZxffQfLj8",
-    authDomain: "primaenrgy-7887e.firebaseapp.com",
-    databaseURL: "https://primaenrgy-7887e.firebaseio.com",
-    projectId: "primaenrgy-7887e",
-    storageBucket: "primaenrgy-7887e.appspot.com",
-    messagingSenderId: "948941569144",
-    appId: "1:948941569144:web:ce02c5144337abf3fd018d"
+  firebaseConfig : {       apiKey: "AIzaSyADTKzsp3ZHx6PzhPD524TE2ZsUwY5ZEjA",
+  authDomain: "webishkolla-b8d15.firebaseapp.com",
+  databaseURL: "https://webishkolla-b8d15.firebaseio.com",
+  projectId: "webishkolla-b8d15",
+  storageBucket: "webishkolla-b8d15.appspot.com",
+  messagingSenderId: "762689992337",
+  appId: "1:762689992337:web:25d7a4f68e9aef86ba3130",
+  measurementId: "G-PDR53JND7X"
   }
 };

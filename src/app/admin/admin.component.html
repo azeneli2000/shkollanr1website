@@ -1,4 +1,4 @@
-<!-- NAVBAR -->
+<!-- navbar -->
 <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg">
   <a class="navbar-brand" (click)="logout()" style="cursor:pointer;" [routerLink]="">
     <svg class="bi bi-gear" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -19,42 +19,44 @@
               <div class="collapse justify-content-end navbar-collapse" [ngClass]="{ 'show': isShown }"
                   id="navbarTogglerDemo03">
                   <ul class="navbar-nav mt-2 mt-lg-0">
-                      <li class="nav-item ">
-                          <a class="nav-link"  (click)="scrollTo('section1')" style="cursor:pointer;">Kryesore</a>
-                      </li>
-                      <li class="nav-item ">
-                          <a class="nav-link"  (click)="scrollTo('section2')" style="cursor:pointer;">Certifikime</a>
-                      </li>
-                      <li class="nav-item" > 
-                          <a class="nav-link" (click)="scrollTo('section5')" style="cursor:pointer;">Projekte</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" (click)="scrollTo('section3')" style="cursor:pointer;">Partneret</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" (click)="scrollTo('section4')" style="cursor:pointer;">Galeri</a>
-                      </li>
-                      <!-- <li class="nav-item">
-                          <a class="nav-link" (click)="scrollTo('section6')" style="cursor:pointer;">Kontakt</a>
-                      </li> -->
+                    <li class="nav-item ">
+                      <a class="nav-link" (click)="scrollTo('section1')" style="cursor:pointer;">Kryesore</a>
+                  </li>
+                  <li class="nav-item ">
+                      <a class="nav-link" (click)="scrollTo('section2')" style="cursor:pointer;">Cikli i ulet</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" (click)="scrollTo('section3')" style="cursor:pointer;">Cikli mesem</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" (click)="scrollTo('section4')" style="cursor:pointer;">Bursat</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" (click)="scrollTo('section5')" style="cursor:pointer;">Galeri</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" (click)="scrollTo('section6')" style="cursor:pointer;">Evente</a>
+                  </li>
                   </ul>
               </div>
           </div>
       </div>
   </div>
 </nav>
-
-
-<!-- KUSH  JEMI -->
+<!-- kush jemi -->
 <div  id="section1" style="margin-top: 5%"></div>
 <div class="container" >
   <div class="row">
     <div class="col-12">
-      <div class="card text-white bg-secondary">
-        <!-- <img class="card-img-top" src="assets/companyprofile.png" class="img-fluid"> -->
-        <div class="card-body">
-          <h5 class="card-title"><img  src="/assets/about.ico" class="img-fluid">Kush jemi</h5>
-          <p class="card-text">{{about}}</p>
+      <div class="row no-gutters">
+        <div class="col-lg-4">
+            <img src="assets/about-us.jpg" alt="" class="img-fluid" style="object-fit: cover;">
+        </div>
+        <div class="col">
+            <div class="card-block px-2 " style="background-color: rgb(246,246,248);" >
+                <h4 class="card-title"><img src="/assets/about.ico" class="img-fluid">Rreth nesh</h4>
+                <p class="card-text">{{about}}</p>
+            </div>
         </div>
         <footer>
           <button type="button" class="btn btn-default" style="margin-left: 10px;"
@@ -74,21 +76,41 @@
     </div>
   </div>
 </div>
-
-<!-- CERTIFIKIME -->
+<!-- cikli ulet -->
 <div  id="section2"></div>
-
 <div class="container" style="margin-top: 5%;">
   <div class="card-deck">
-      <div class="card text-white bg-secondary" >
-          <img class="card-img-top" src="assets/enterprise.png" alt="Card image cap">
-          <div class="card-body" >
-              <h5 class="card-title">Profili i kompanise</h5>
-              <p class="card-text">{{profili}}</p>
-          </div>
+          <div class="card text-white" style="background-color:rgb(89,42,157)">
+            <img class="card-img-top " src="assets/parashkollor.jpg" alt="Card image cap" height="400px" style="object-fit: cover;">
+            <div class="card-body shadow-nohover ">
+                <h3 class="card-title">Parashkollori</h3>
+                <p class="card-text">{{cikli0}}</p>
+            </div>
+
           <footer>
             <button type="button" class="btn btn-default" style="margin-left: 10px;"
-              (click)="openModalSettings('profili',profili,profiliAnglisht)">
+              (click)="openModalSettings('cikli0',cikli0,cikli0Anglisht)">
+              <svg class="bi bi-card-text" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M14.5 3h-13a.5.5 0 00-.5.5v9a.5.5 0 00.5.5h13a.5.5 0 00.5-.5v-9a.5.5 0 00-.5-.5zm-13-1A1.5 1.5 0 000 3.5v9A1.5 1.5 0 001.5 14h13a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0014.5 2h-13z"
+                  clip-rule="evenodd" />
+                <path fill-rule="evenodd"
+                  d="M3 5.5a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9a.5.5 0 01-.5-.5zM3 8a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9A.5.5 0 013 8zm0 2.5a.5.5 0 01.5-.5h6a.5.5 0 010 1h-6a.5.5 0 01-.5-.5z"
+                  clip-rule="evenodd" />
+              </svg>
+            </button>
+          </footer>
+        </div>
+       <div class="card text-white " style="background-color: rgb(143,115,87)">
+            <img class="card-img-top" src="assets/kl1.jpg"  height="400px" style="object-fit: cover;">
+            <div class="card-body shadow-nohover">
+                <h5 class="card-title">Cikli i ulet</h5>
+                <p class="card-text">{{cikli1}}</p>
+            </div>
+          <footer>
+            <button type="button" class="btn btn-default" style="margin-left: 10px;"
+              (click)="openModalSettings('cikli1',cikli1,cikli1Anglisht)">
               <svg class="bi bi-card-text" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
@@ -101,91 +123,114 @@
             </button>
           </footer>
       </div>
-      <div class="card text-white bg-secondary" >
-          <img class="card-img-top" src="assets/certification.png">
-          <div class="card-body">
-              <h5 class="card-title">Certifikimet</h5>
-              <p class="card-text">{{certifikime}}</p>
-              <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-          </div>
-          <footer>
-            <button type="button" class="btn btn-default" style="margin-left: 10px;"
-              (click)="openModalSettings('certifikime',certifikime,certifikimeAnglisht)">
-              <svg class="bi bi-card-text" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                  d="M14.5 3h-13a.5.5 0 00-.5.5v9a.5.5 0 00.5.5h13a.5.5 0 00.5-.5v-9a.5.5 0 00-.5-.5zm-13-1A1.5 1.5 0 000 3.5v9A1.5 1.5 0 001.5 14h13a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0014.5 2h-13z"
-                  clip-rule="evenodd" />
-                <path fill-rule="evenodd"
-                  d="M3 5.5a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9a.5.5 0 01-.5-.5zM3 8a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9A.5.5 0 013 8zm0 2.5a.5.5 0 01.5-.5h6a.5.5 0 010 1h-6a.5.5 0 01-.5-.5z"
-                  clip-rule="evenodd" />
-              </svg>
-            </button>
-          </footer>
-      </div>
-      <div class="card text-white bg-secondary" >
-          <img class="card-img-top" src="assets/productlicensing.png" alt="Card image cap">
-          <div class="card-body">
-              <h5 class="card-title">Licensat</h5>
-              <p class="card-text">{{licensat}}</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-          <footer>
-            <button type="button" class="btn btn-default" style="margin-left: 10px;"
-              (click)="openModalSettings('licensat',licensat,licensatAnglisht)">
-              <svg class="bi bi-card-text" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                  d="M14.5 3h-13a.5.5 0 00-.5.5v9a.5.5 0 00.5.5h13a.5.5 0 00.5-.5v-9a.5.5 0 00-.5-.5zm-13-1A1.5 1.5 0 000 3.5v9A1.5 1.5 0 001.5 14h13a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0014.5 2h-13z"
-                  clip-rule="evenodd" />
-                <path fill-rule="evenodd"
-                  d="M3 5.5a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9a.5.5 0 01-.5-.5zM3 8a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9A.5.5 0 013 8zm0 2.5a.5.5 0 01.5-.5h6a.5.5 0 010 1h-6a.5.5 0 01-.5-.5z"
-                  clip-rule="evenodd" />
-              </svg>
-            </button>
-          </footer>
-      </div>
+    </div>
   </div>
+  <!-- cikli mesem -->
+  <div  id="section3"></div>
+    <div class="container" style="margin-top: 5%;">
+    <div class="card-deck">
+      <div class="card text-white" style="background-color:rgb(189,24,59);">
+        <img class="card-img-top " src="assets/cikli2.jpg" alt="Card image cap"  height="400px" style="object-fit: cover;">
+        <div class="card-body shadow-nohover ">
+            <h5 class="card-title">Cikli i mesem i ulet</h5>
+            <p class="card-text">{{cikli2}}</p>
+        </div>
+
+          <footer>
+            <button type="button" class="btn btn-default" style="margin-left: 10px;"
+              (click)="openModalSettings('cikli2',cikli2,cikli2Anglisht)">
+              <svg class="bi bi-card-text" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M14.5 3h-13a.5.5 0 00-.5.5v9a.5.5 0 00.5.5h13a.5.5 0 00.5-.5v-9a.5.5 0 00-.5-.5zm-13-1A1.5 1.5 0 000 3.5v9A1.5 1.5 0 001.5 14h13a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0014.5 2h-13z"
+                  clip-rule="evenodd" />
+                <path fill-rule="evenodd"
+                  d="M3 5.5a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9a.5.5 0 01-.5-.5zM3 8a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9A.5.5 0 013 8zm0 2.5a.5.5 0 01.5-.5h6a.5.5 0 010 1h-6a.5.5 0 01-.5-.5z"
+                  clip-rule="evenodd" />
+              </svg>
+            </button>
+          </footer>
+      </div>
+
+      <div class="card text-white " style="background-color:rgb(56,97,149);" >
+        <img class="card-img-top" src="assets/cikli3.jpg"  height="400px" style="object-fit: cover;">
+        <div class="card-body shadow-nohover">
+            <h5 class="card-title">Cikli i mesem i larte</h5>
+            <p class="card-text">{{cikli3}}</p>
+        </div>
+        <footer>
+          <button type="button" class="btn btn-default" style="margin-left: 10px;"
+            (click)="openModalSettings('cikli3',cikli3,cikli3Anglisht)">
+            <svg class="bi bi-card-text" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M14.5 3h-13a.5.5 0 00-.5.5v9a.5.5 0 00.5.5h13a.5.5 0 00.5-.5v-9a.5.5 0 00-.5-.5zm-13-1A1.5 1.5 0 000 3.5v9A1.5 1.5 0 001.5 14h13a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0014.5 2h-13z"
+                clip-rule="evenodd" />
+              <path fill-rule="evenodd"
+                d="M3 5.5a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9a.5.5 0 01-.5-.5zM3 8a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9A.5.5 0 013 8zm0 2.5a.5.5 0 01.5-.5h6a.5.5 0 010 1h-6a.5.5 0 01-.5-.5z"
+                clip-rule="evenodd" />
+            </svg>
+          </button>
+        </footer>
+    </div>
 </div>
-<!-- PARTNERET -->
-<div  id="section3"></div>
+    </div>
+<!-- Bursat -->
+<div  id="section4"></div>
 <div class="container" style="margin-top: 5%;">
   <div class="row">
       <div class="col-12">
-          <div class="card text-white bg-secondary" >
-              <!-- <img class="card-img-top" src="assets/companyprofile.png" class="img-fluid"> -->
-              <div class="card-body"  >
-                  <h5 class="card-title"><img  src="/assets/partner.ico" class="img-fluid">Partneret e huaj</h5>
-                  <p class="card-text">{{partneret}}</p>
-              </div>
-              <footer>
-                <button type="button" class="btn btn-default" style="margin-left: 10px;"
-                  (click)="openModalSettings('partneret',partneret,partneretAnglisht)">
-                  <svg class="bi bi-card-text" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                      d="M14.5 3h-13a.5.5 0 00-.5.5v9a.5.5 0 00.5.5h13a.5.5 0 00.5-.5v-9a.5.5 0 00-.5-.5zm-13-1A1.5 1.5 0 000 3.5v9A1.5 1.5 0 001.5 14h13a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0014.5 2h-13z"
-                      clip-rule="evenodd" />
-                    <path fill-rule="evenodd"
-                      d="M3 5.5a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9a.5.5 0 01-.5-.5zM3 8a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9A.5.5 0 013 8zm0 2.5a.5.5 0 01.5-.5h6a.5.5 0 010 1h-6a.5.5 0 01-.5-.5z"
-                      clip-rule="evenodd" />
-                  </svg>
-                </button>
-              </footer>
+        <div class="card text-white ">
+          <img class="card-img-top img-fluid shadow-nohover" src="assets/bursat.jpg" alt="Card image cap" height="400px"
+          style="object-fit: cover;">
+          <div class="card-body shadow-nohover" style="background-color: rgb(156,157,116)">
+              <h5 class="card-title">Bursat </h5>
+              <p class="card-text">{{bursat}}</p>
           </div>
+
+          </div>
+          <footer>
+            <div class="row">
+                     <!-- pdf -->
+            <div class="image-upload" style="margin-left: 15px;margin-top: 7px;">
+              <input class="mt-auto" id="bursatpdf" type="file"  (change)="onFileSelectedPdfBursat($event)" name="bursatpdf"
+                autocomplete="off"  />
+                <label for="bursatpdf">
+                  <svg class="bi bi-file-earmark-arrow-up" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 1h5v1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6h1v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2z"/>
+                    <path d="M9 4.5V1l5 5h-3.5A1.5 1.5 0 0 1 9 4.5z"/>
+                    <path fill-rule="evenodd" d="M5.646 8.854a.5.5 0 0 0 .708 0L8 7.207l1.646 1.647a.5.5 0 0 0 .708-.708l-2-2a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708z"/>
+                    <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-1 0v4a.5.5 0 0 0 .5.5z"/>
+                  </svg>
+                </label>
+            </div>
+            <button type="button" class="btn btn-default" style="margin-left: 10px;"
+              (click)="openModalSettings('bursat',bursat,bursatAnglisht)">
+              <svg class="bi bi-card-text" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M14.5 3h-13a.5.5 0 00-.5.5v9a.5.5 0 00.5.5h13a.5.5 0 00.5-.5v-9a.5.5 0 00-.5-.5zm-13-1A1.5 1.5 0 000 3.5v9A1.5 1.5 0 001.5 14h13a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0014.5 2h-13z"
+                  clip-rule="evenodd" />
+                <path fill-rule="evenodd"
+                  d="M3 5.5a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9a.5.5 0 01-.5-.5zM3 8a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9A.5.5 0 013 8zm0 2.5a.5.5 0 01.5-.5h6a.5.5 0 010 1h-6a.5.5 0 01-.5-.5z"
+                  clip-rule="evenodd" />
+              </svg>
+            </button>
+
+          </div>
+          </footer>
       </div>
   </div>
 </div>
-
-<!-- PROJEKTE -->
-<div  id="section5"></div>
+<!-- evente -->
+<div  id="section6"></div>
 <div class="container" style="margin-top: 5%;">
   <button type="button" class="btn btn-secondary" (click)="openModalNew(true)">
   <svg class="bi bi-file-plus" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
     <path d="M9 1H4a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V8h-1v5a1 1 0 01-1 1H4a1 1 0 01-1-1V3a1 1 0 011-1h5V1z"/>
     <path fill-rule="evenodd" d="M13.5 1a.5.5 0 01.5.5v2a.5.5 0 01-.5.5h-2a.5.5 0 010-1H13V1.5a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
     <path fill-rule="evenodd" d="M13 3.5a.5.5 0 01.5-.5h2a.5.5 0 010 1H14v1.5a.5.5 0 01-1 0v-2z" clip-rule="evenodd"/>
-  </svg> 
+  </svg>
   </button>
 
   <div class="row">
@@ -218,6 +263,20 @@
               <input class="mt-auto" id={{p.key}} type="file" #userPhoto (change)="onFileSelected($event)" name="image"
                 autocomplete="off" />
             </div>
+
+            <div class="image-upload" style="margin-left: 15px;margin-top: 7px;">
+              <label for="{{p.key}}pdf">
+                <svg class="bi bi-file-earmark-arrow-up" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 1h5v1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6h1v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2z"/>
+                  <path d="M9 4.5V1l5 5h-3.5A1.5 1.5 0 0 1 9 4.5z"/>
+                  <path fill-rule="evenodd" d="M5.646 8.854a.5.5 0 0 0 .708 0L8 7.207l1.646 1.647a.5.5 0 0 0 .708-.708l-2-2a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708z"/>
+                  <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-1 0v4a.5.5 0 0 0 .5.5z"/>
+                </svg>
+              </label>
+              <input class="mt-auto" id="{{p.key}}pdf" type="file" #userPhoto (change)="onFileSelectedPdfProjektet($event)" name="image"
+                autocomplete="off" />
+            </div>
+
             <button type="button" class="btn btn-default" style="margin-left: 10px;"
               (click)="openModal(p.key,false,true)">
               <svg class="bi bi-card-text" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor"
@@ -246,5 +305,6 @@
     </div>
   </div>
 </div>
-<div  id="section4"></div>
+<!-- galeri -->
+<div  id="section5"></div>
 <app-galery-admim></app-galery-admim>

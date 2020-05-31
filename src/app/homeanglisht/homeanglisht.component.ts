@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';  
 import { GetDataService } from '../get-data.service';
+
 import { database } from 'firebase';
 
 @Component({
@@ -14,7 +15,7 @@ export class HomeanglishtComponent implements OnInit {
   isShown:boolean=false;
   activeMenu;
   constructor(config: NgbCarouselConfig, private data : GetDataService) {
-    config.interval = 5000;  
+    config.interval = 7000;  
     config.wrap = true;  
     config.keyboard = false;  
     config.pauseOnHover = false;  
@@ -34,11 +35,24 @@ partneret ;
 partneretAnglisht
 profili ;
 profiliAnglisht;
+cikli0;
+cikli0Anglsht;
+
+cikli1;
+cikli1Anglisht;
+cikli2;
+cikli2Anglisht;
+cikli3;
+cikli3Anglisht;
+bursat;
+bursatAnglisht;
+srcBursat;
+
   ngOnInit(): void {
    this.data.getDataShqip().subscribe((s)=>{ 
    this.projects = [];
     s.forEach(element => {
-     this.projects.push({'src': element.payload.val()["imageUrl"],'titulli': element.payload.val()["titulli"],'detaje':element.payload.val()["detaje"]});
+     this.projects.push({'id':element.key,'src': element.payload.val()["imageUrl"],'titulli': element.payload.val()["titulli"],'detaje':element.payload.val()["detaje"],'pdfUrl':element.payload.val()["pdfUrl"]});
 
     });
     });
@@ -49,18 +63,21 @@ profiliAnglisht;
       this.about = s.find((s)=>s.key=="about").payload.val()['teksti'];
       this.aboutAnglisht = s.find((s)=>s.key=="about").payload.val()['tekstiAnglisht'];
    
-      this.certifikime = s.find((s)=>s.key=="certifikime").payload.val()['teksti'];
-      this.certifikimeAnglisht = s.find((s)=>s.key=="certifikime").payload.val()['tekstiAnglisht'];
+      this.cikli0 = s.find((s)=>s.key=="cikli0").payload.val()['teksti'];
+      this.cikli0Anglsht = s.find((s)=>s.key=="cikli0").payload.val()['tekstiAnglisht'];
    
-      this.licensat = s.find((s)=>s.key=="licensat").payload.val()['teksti'];
-      this.licensatAnglisht = s.find((s)=>s.key=="licensat").payload.val()['tekstiAnglisht'];
+      this.cikli1 = s.find((s)=>s.key=="cikli1").payload.val()['teksti'];
+      this.cikli1Anglisht = s.find((s)=>s.key=="cikli1").payload.val()['tekstiAnglisht'];
    
-      this.profili = s.find((s)=>s.key=="profili").payload.val()['teksti'];
-      this.profiliAnglisht = s.find((s)=>s.key=="profili").payload.val()['tekstiAnglisht'];
+      this.cikli2 = s.find((s)=>s.key=="cikli2").payload.val()['teksti'];
+      this.cikli2Anglisht = s.find((s)=>s.key=="cikli2").payload.val()['tekstiAnglisht'];
      
-      this.partneret = s.find((s)=>s.key=="partneret").payload.val()['teksti'];
-      this.partneretAnglisht = s.find((s)=>s.key=="partneret").payload.val()['tekstiAnglisht'];
-   
+      this.cikli3 = s.find((s)=>s.key=="cikli3").payload.val()['teksti'];
+      this.cikli3Anglisht = s.find((s)=>s.key=="cikli3").payload.val()['tekstiAnglisht'];
+      this.bursat = s.find((s)=>s.key=="bursat").payload.val()['teksti'];
+      this.bursatAnglisht = s.find((s)=>s.key=="bursat").payload.val()['tekstiAnglisht'];
+      this.srcBursat = s.find((s)=>s.key=="bursat").payload.val()['pdfUrl'];
+
        })
   }
 

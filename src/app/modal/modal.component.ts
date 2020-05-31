@@ -17,7 +17,8 @@ export class ModalComponent implements OnInit {
     projektiShqipTitulli:'',
     projektiShqipDetaje:'',
     projektiAnglishtTitulli:'' ,
-    projektiAnglishtDetaje :''
+    projektiAnglishtDetaje :'',
+    pdfUrl:''
   };
   @Output() passEntry: EventEmitter<any> = new EventEmitter();
   constructor( public activeModal: NgbActiveModal, private data : GetDataService) { }
@@ -30,7 +31,7 @@ export class ModalComponent implements OnInit {
   passBack() {
     this.passEntry.emit(this.modalData);
     if(!this.modalData.add)
-    this.data.updateProject(this.modalData.projektiShqipTitulli,this.modalData.projektiAnglishtTitulli,this.modalData.projektiShqipDetaje,this.modalData.projektiAnglishtDetaje,this.modalData.key);
+    this.data.updateProject(this.modalData.projektiShqipTitulli,this.modalData.projektiAnglishtTitulli,this.modalData.projektiShqipDetaje,this.modalData.projektiAnglishtDetaje,this.modalData.key,this.modalData.pdfUrl);
 else
 this.data.addNewProjet(this.modalData.projektiShqipTitulli,this.modalData.projektiShqipDetaje,this.modalData.projektiAnglishtTitulli,this.modalData.projektiAnglishtDetaje)
     this.activeModal.close(this.modalData);

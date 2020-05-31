@@ -24,6 +24,8 @@ export class GalleryComponent implements OnInit {
     let l = this.data.checkGalery().subscribe((a) => {
       if (a.length == 0) this.data.addGAlleryEmpty();
       else {
+        this.album = [];
+
         a.forEach((element) => {
           element.payload.val();
           this.album.push(element.payload.val());
