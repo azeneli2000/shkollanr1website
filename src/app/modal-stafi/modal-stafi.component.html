@@ -1,0 +1,60 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Pershkrimi i stafit</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div style="display: inline;margin-left: 2%;">
+    <label for="cikliInput" >Cikli  </label>
+    <select id="cikliInput" type="number" [(ngModel)]="modalData.cikli" (ngModelChange)="toNumber()"  >      
+      <option *ngFor="let level of levels" [ngValue]="level.num">{{level.name}}</option>
+    </select>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+     
+          
+            <ngb-tabset [destroyOnHide]="false">
+
+          <ngb-tab title="Shqip">
+            
+            <ng-template ngbTabContent>
+                <label for="titulliInputShqip">Titulli shqip</label>        
+                <input type="text" class="form-control" id="titulliInputShqip" [(ngModel)]="modalData.stafiShqipTitulli"   > <br />
+                <label for="lendaInputShqip">Lenda shqip</label>        
+                <input type="text" class="form-control" id="lendaInputShqip" [(ngModel)]="modalData.stafiShqipLenda"   > <br />
+            <div>
+            <label for="detajeInputShqip">Detaje shqip</label>  
+            <textarea id="detajeInputShqip"  class="form-control" rows="25" style="min-width: 100%;" h-100 [(ngModel)]="modalData.stafiShqipDetaje" type="text">
+             </textarea>
+            </div>
+            </ng-template>
+
+          </ngb-tab>
+
+          <ngb-tab title="Anglisht">
+            <ng-template ngbTabContent>
+                <label for="titulliInputAnglisht">Titulli anglisht</label>        
+                <input type="text" class="form-control" id="titulliInputAnglisht" [(ngModel)]="modalData.stafiAnglishtTitulli"  > <br />
+                <label for="lendaInputAnglisht">Lenda anglisht</label>        
+                <input type="text" class="form-control" id="lendaInputAnglisht" [(ngModel)]="modalData.stafiAnglishtLenda"  > <br />
+          
+            <div>
+              <label for="detajeInputAnglisht">Detaje anglisht</label>  
+             <textarea id="detajeInputAnglisht" class="form-control" rows="25" style="min-width: 100%;" [(ngModel)]="modalData.stafiAnglishtDetaje" type="text"> </textarea>
+            </div>
+            </ng-template>
+          </ngb-tab>            
+           
+        </ngb-tabset>
+        </div>
+
+    <button (click)="passBack()" type="submit" class="btn btn-primary w-100" style="margin-top: 3%;">Ruaj</button>
+  </div>
+
+  
+
+
+
+
+ 

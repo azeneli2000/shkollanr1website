@@ -1,0 +1,28 @@
+.image-upload > input
+{
+    display: none;
+}
+
+@media screen and (min-width: 1000px) {
+.custom-circle-image {
+    width:10vw;
+    height: 10vw;
+  }
+
+
+  .custom-circle-image img {
+    object-fit: cover;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .custom-circle-image {
+      width:80vw;
+      height: 80vw;
+    }
+    .custom-circle-image img {
+      object-fit: cover;
+    }
+  }
+.hide{
+  display: none;
+}

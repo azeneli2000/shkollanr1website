@@ -6,6 +6,8 @@ import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { ViewerComponent } from './viewer/viewer.component';
 import { StafiCikliUletComponent } from './stafi-cikli-ulet/stafi-cikli-ulet.component';
+import { StafiComponent } from './stafi/stafi.component';
+import { StafiAdminComponent } from './stafi-admin/stafi-admin.component';
 
 
 const routes: Routes = [{path :'', component : HomeanglishtComponent},
@@ -14,7 +16,7 @@ const routes: Routes = [{path :'', component : HomeanglishtComponent},
                          {path : 'login', component : LoginComponent},
                          {path : 'pdf', component : ViewerComponent},
                          {path : 'pdf/:id', component : ViewerComponent},
-                         {path : 'cu', component : StafiCikliUletComponent}]
+                         {path : 'stafi/:id', component : StafiAdminComponent}]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

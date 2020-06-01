@@ -25,7 +25,10 @@ import { LoginComponent } from './login/login.component';
 import{ViewerComponent} from './viewer/viewer.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { Ng2ImgMaxModule } from 'ng2-img-max';
-import { StafiCikliUletComponent } from './stafi-cikli-ulet/stafi-cikli-ulet.component'; 
+import { StafiCikliUletComponent } from './stafi-cikli-ulet/stafi-cikli-ulet.component';
+import { StafiAdminComponent } from './stafi-admin/stafi-admin.component';
+import { StafiComponent } from './stafi/stafi.component';
+import { ModalStafiComponent } from './modal-stafi/modal-stafi.component'; 
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { StafiCikliUletComponent } from './stafi-cikli-ulet/stafi-cikli-ulet.com
     GaleryAdmimComponent,
     LoginComponent,
     ViewerComponent,
-    StafiCikliUletComponent
+    StafiCikliUletComponent,
+    StafiAdminComponent,
+    StafiComponent,
+    ModalStafiComponent
     
   ],
   imports: [
@@ -57,7 +63,7 @@ import { StafiCikliUletComponent } from './stafi-cikli-ulet/stafi-cikli-ulet.com
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ ModalComponent,ConfirmModalComponent ]
+  entryComponents: [ ModalComponent,ConfirmModalComponent,ModalStafiComponent ]
 
 })
 export class AppModule { }
