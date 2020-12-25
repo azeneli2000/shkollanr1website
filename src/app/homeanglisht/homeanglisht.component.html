@@ -1,5 +1,8 @@
 <!-- navbar -->
 <nav class="navbar navbar-expand-md  navbar-dark navCollapsed  sticky-top  ">
+  
+
+
     <a class="navbar-brand" href="#"><img src="/assets/logo5.png"> Shkolla "Nr.1"</a> <a href="tel:00355672018919"><img src="/assets/tel.png"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
         (click)="isShown = !isShown">
@@ -28,9 +31,15 @@
             <li class="nav-item">
                 <a class="nav-link" (click)="scrollTo('section7')" style="cursor:pointer;">Kontakt</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="openPunesimiModal()" style="cursor:pointer;">Apliko per punesim</a>
+            </li>
         </ul>
+        <ngb-alert *ngIf="showAlert" type="success" [dismissible]="false">Aplikimi u regjistrua !</ngb-alert> 
+
     </div>
 </nav>
+
 <!-- carousel -->
 <ngb-carousel data-ride="carousel fixed-top">
     <ng-template ngbSlide>
@@ -78,6 +87,8 @@
                 <div class="card-block px-2 " style="background-color: rgb(246,246,248);" >
                     <h4 class="card-title"><img src="/assets/about.ico" class="img-fluid">Rreth nesh</h4>
                     <p class="card-text">{{about}}</p>
+                    <a [routerLink]="['pdf','about']" class="btn " type="button" style ="background-color: rgb(218,67,59);margin-bottom: 10px;margin-bottom: 10px;color: whitesmoke;"   >
+                        Me shume</a>
                 </div>
             </div>
         </div>
@@ -164,10 +175,10 @@ Stafi</a>
 </div>
 <div id="section6"></div>
 <!-- evente -->
-<div class="container" style="margin-top: 5%;">
+<div class="container" style="margin-top: 5%; ">
     <div class="row">
         <div class="card-deck col-sm-4" *ngFor="let p of projects; let i=index">
-            <div class="card text-white " style="margin-top: 5%;background-color: #1B2740;">
+            <div class="card text-white" style="margin-top: 5%;background-color: #1B2740;">
                 <img class="card-img-top img-thumbnail imgCarousel1 img-fluid" src={{p.src}} alt="Card image cap">
                 <div class="card-body shadow-nohover">
                     <h5 class="card-title">{{p.titulli}}</h5>
@@ -192,18 +203,18 @@ Stafi</a>
             <div class="col-xs-6 col-md-3">
                 <h6><i class="fa fa-envelope"></i> Kontakt</h6>
                 <ul class="footer-links">
-                    <li>Drejtori : <a href="mailto:drejtorishknr1@gmail.com">
-                        drejtorishknr1@gmail.com </a><br />
-                    <li>Sekretaria : <br /><a href="mailto:sekretarishknr1@gmail.com">
-                        sekretarishknr1@gmail.com </a>
-                    <li>Financa : <br /><a href="mailto:financashknr1@gmail.com">
-                        financashknr1@gmail.com </a>
+                    <li>Drejtori : <a href="mailto:drejtoria@shkollanr1.edu.al">
+                        drejtoria@shkollanr1.edu.al </a><br />
+                    <li>Sekretaria : <br /><a href="mailto:sekretaria@shkollanr1.edu.al">
+                        sekretaria@shkollanr1.edu.al </a>
+                    <li>Financa : <br /><a href="mailto:financa@shkollanr1.edu.al">
+                        financa@shkollanr1.edu.al </a>
                 </ul>
             </div>
             <div class="col-xs-6 col-md-3">
                 <h6><i class="fa fa-phone"></i>Telefon</h6>
                 <ul class="footer-links">
-                    <li>Drejtori :<a href="tel:00355692069800"> 00355672018916 </a></li>
+                    <li>Drejtori :<a href="tel:00355672018916"> 00355672018916 </a></li>
                 </ul>
                 <ul class="footer-links">
                     <li>Sekretaria :<a href="tel:00355672018919"> 00355672018919 </a></li>

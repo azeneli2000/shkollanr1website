@@ -186,4 +186,13 @@ getStaf(){
   }
 }
 
+addCv(data){
+this.db.list('projekte/cv').push(data);
+}
+getCv(){
+return ( this.db.list('projekte/cv').snapshotChanges());
+  }
+ deleteCv(key){
+    this.db.list('projekte/cv').remove(key);
+      }
 }

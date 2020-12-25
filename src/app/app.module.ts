@@ -28,7 +28,9 @@ import { Ng2ImgMaxModule } from 'ng2-img-max';
 import { StafiCikliUletComponent } from './stafi-cikli-ulet/stafi-cikli-ulet.component';
 import { StafiAdminComponent } from './stafi-admin/stafi-admin.component';
 import { StafiComponent } from './stafi/stafi.component';
-import { ModalStafiComponent } from './modal-stafi/modal-stafi.component'; 
+import { ModalStafiComponent } from './modal-stafi/modal-stafi.component';
+import { PunesimModalComponent } from './punesim-modal/punesim-modal.component';
+
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { ModalStafiComponent } from './modal-stafi/modal-stafi.component';
     StafiCikliUletComponent,
     StafiAdminComponent,
     StafiComponent,
-    ModalStafiComponent
+    ModalStafiComponent,
+    PunesimModalComponent,
     
   ],
   imports: [
@@ -63,7 +66,7 @@ import { ModalStafiComponent } from './modal-stafi/modal-stafi.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ ModalComponent,ConfirmModalComponent,ModalStafiComponent ]
+  entryComponents: [ ModalComponent,ConfirmModalComponent,ModalStafiComponent,PunesimModalComponent ]
 
 })
 export class AppModule { }

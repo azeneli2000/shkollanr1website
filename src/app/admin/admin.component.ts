@@ -20,9 +20,12 @@ import { Ng2ImgMaxService } from 'ng2-img-max';
 export class AdminComponent implements OnInit {
   email ;
   isShown;
+ isCollapsed = false;
+currentCollapseId ='';
   uploadProgress: number = 0;
   currentProjectId: string = '';
   projects: any = [];
+  cv: any = [];
   reducedImage;
   selectedFile: File = null;
   fb;
@@ -85,7 +88,7 @@ srcBursat
     if(!this.auth.isLoggedIn)
      this.router.navigate(['/login']);
       
-     this.email= localStorage.getItem('user');
+     this.email= localStorage.getItem('userShkollaWeb');
 
     this.data.getDataShqip().subscribe((s) => {
       this.projects = [];
@@ -116,7 +119,27 @@ srcBursat
       this.cikli3Anglisht = s.find((s)=>s.key=="cikli3").payload.val()['tekstiAnglisht'];
       this.bursat = s.find((s)=>s.key=="bursat").payload.val()['teksti'];
       this.bursatAnglisht = s.find((s)=>s.key=="bursat").payload.val()['tekstiAnglisht'];
-    })
+    });
+
+    this.data.getCv().subscribe((s)=>{
+      this.cv = [];
+
+      s.forEach((element) => {
+        this.cv.push({
+          key: element.key,
+          vjetersia: element.payload.val()['vjetersia'],
+          atestimi: element.payload.val()['atestimi'],
+          pershkrim: element.payload.val()['pershkrim'],
+          diploma: element.payload.val()['diploma'],
+          emri : element.payload.val()['emri'],
+          tel : element.payload.val()['tel'],
+          email : element.payload.val()['email'],
+        });
+      });
+      console.log('cv :' + this.cv)
+    }
+    
+    )
   }
 
   onFileSelected(event) {
@@ -275,7 +298,7 @@ srcBursat
   }
 
   openModalConfirm(key) {
-    debugger
+    
     const modalRef = this.modalService.open(ConfirmModalComponent);
     modalRef.componentInstance.key = key;
 
@@ -313,5 +336,17 @@ srcBursat
     
 
     this.data.deleteProject(key);
+  }
+
+
+  openModalConfirmCv(key) {
+    const modalRef = this.modalService.open(ConfirmModalComponent);
+    modalRef.componentInstance.key = key;
+
+    modalRef.result.then((result) => {
+      if (result) {
+        this.data.deleteCv(key);
+      }
+    });
   }
 }

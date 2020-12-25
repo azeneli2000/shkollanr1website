@@ -1,0 +1,40 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">APLIKIM PER PUNESIM</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container">               
+        <div>
+          <label for="emri"> Emri</label>  
+            <input id="emri"  class="form-control" [(ngModel)]="modalData.emri" type="text">
+            </div>           
+            <div>
+            <label for="diploma"> Instituti i diplomes</label>  
+            <input id="diploma"  class="form-control" [(ngModel)]="modalData.diploma" type="text">
+            </div>           
+            <div>
+                <label for="vjetersia">Vjetersia ne arsim</label>  
+                <input id="vjetersia"  class="form-control" [(ngModel)]="modalData.vjetersia" type="text">
+                </div>                
+            <div>
+                <label for="atestimi">Atestimi</label>  
+                <input id="atestimi"  class="form-control"  [(ngModel)]="modalData.atestimi" type="text">
+                </div>    
+            <div>
+                <label for="tel">Telefon</label>  
+                <input id="tel"  class="form-control"  [(ngModel)]="modalData.tel" type="number">
+                </div>    
+            <div>
+                <label for="email">Email</label>  
+                <input id="email"  class="form-control"  [(ngModel)]="modalData.email" type="email">
+                </div>    
+                <div>
+                <label for="pershkrim">Pershkrim</label>  
+                <textarea id="pershkrim"  class="form-control" rows="25" style="min-width: 100%;" h-100 [(ngModel)]="modalData.pershkrim" type="text">
+            </textarea>    
+        </div>                        
+        </div>
+    <button (click)="passBack()" type="submit" class="btn btn-primary w-100" style="margin-top: 3%;">Dergo</button>
+  </div>

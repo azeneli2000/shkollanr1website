@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';  
+import { NgbCarouselConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';  
 import { GetDataService } from '../get-data.service';
 
 import { database } from 'firebase';
+import { PunesimModalComponent } from '../punesim-modal/punesim-modal.component';
+
 
 @Component({
   selector: 'app-homeanglisht',
@@ -14,12 +16,14 @@ export class HomeanglishtComponent implements OnInit {
   projects : any = [];
   isShown:boolean=false;
   activeMenu;
-  constructor(config: NgbCarouselConfig, private data : GetDataService) {
+  showAlert = false;
+  constructor(config: NgbCarouselConfig, private data : GetDataService,private modalService: NgbModal) {
     config.interval = 7000;  
     config.wrap = true;  
     config.keyboard = false;  
     config.pauseOnHover = false;  
     config.wrap=true;
+    
 
 
 }
@@ -91,6 +95,18 @@ srcBursat;
     document.querySelector('#' + section)
     .scrollIntoView();
     this.isShown=false;
+  }
+
+  openPunesimiModal(){
+    const modalRef = this.modalService.open(PunesimModalComponent);
+    modalRef.result.then((result) => {  this.showAlert=true;
+      setTimeout(() => {
+        this.showAlert=false;
+      }, 2000);
+      if (result) {
+      
+      }
+    });
   }
 
 

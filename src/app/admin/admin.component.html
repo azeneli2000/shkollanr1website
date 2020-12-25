@@ -37,6 +37,12 @@
                   <li class="nav-item">
                       <a class="nav-link" (click)="scrollTo('section6')" style="cursor:pointer;">Evente</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" (click)="scrollTo('section7')" style="cursor:pointer;">Stafi</a>
+                </li>
+                  <li class="nav-item">
+                    <a class="nav-link" (click)="scrollTo('section8')" style="cursor:pointer;">Aplikime</a>
+                </li>
                   </ul>
               </div>
           </div>
@@ -307,5 +313,60 @@
 </div>
 <!-- galeri -->
 <div  id="section5"></div>
+<div class="container" style="margin-top: 5%;">
+  <h3>Galeri </h3>
+  <hr />
+  </div>
 <app-galery-admim></app-galery-admim>
+<div  id="section7"></div>
+<div class="container" style="margin-top: 5%;">
+<h3>Stafi </h3>
+<hr />
+</div>
 <app-stafi></app-stafi>
+
+<div  id="section8"></div>
+
+<div class="container" style="margin-top: 5%;">
+ 
+ <h3>Aplikime per pune </h3>
+  <hr />
+
+
+  <div class="row">
+    <div class="card-deck col-sm-12" *ngFor="let c of cv; let i=index">
+      <div class="card" style="margin-top: 5%;">
+        
+        <div class="card-body">
+          <h5 class="card-title">{{c.emri}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted"><b>Shkollimi</b> : {{c.diploma}} <b>Vjetersia</b> {{c.vjetersia}} <b>Atestimi</b> : {{c.atestimi}}</h6>
+          <code>Telefon : <a href="tel:{{c.tel}}">{{c.tel}}</a> Email :  <a href="mailto:{{c.email}}">{{c.email}}</a></code>
+          <p>
+            <br />
+            <button type="button" class="btn btn-outline-primary"  (click)="isCollapsed = !isCollapsed ; currentCollapseId = c.key" >
+              Me shume
+            </button>
+          </p>
+          <div  id="{{c.key}}" *ngIf="isCollapsed && currentCollapseId==c.key"><p >{{c.pershkrim}}</p></div>
+        </div>
+     
+        <footer>
+          <div class="row">
+            <button type="button" class="btn btn-default" style="margin-left: 10px;" (click)="openModalConfirmCv(c.key)">
+              <svg class="bi bi-trash" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z" />
+                <path fill-rule="evenodd"
+                  d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+                  clip-rule="evenodd" />
+              </svg>
+            </button>
+          </div>
+        </footer>
+      </div>
+      </div>
+    </div>
+    
+
+

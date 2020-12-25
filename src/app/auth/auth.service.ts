@@ -22,7 +22,7 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then(value => {
         this.router.navigate(['admin']);
-       localStorage.setItem('user',value.user.email);
+       localStorage.setItem('userShkollaWeb',value.user.email);
       })
       .catch(err => {
         console.log('Gabim:',err.message);
@@ -36,12 +36,12 @@ export class AuthService {
 
 async logout(){
   await this.afAuth.signOut();
-  localStorage.removeItem('user');
+  localStorage.removeItem('userShkollaWeb');
   this.router.navigate(['login']);
   
 }
 get isLoggedIn(): boolean {
-  const  user  =  (localStorage.getItem('user'));
+  const  user  =  (localStorage.getItem('userShkollaWeb'));
   return  user  !==  null;
 }
 // async  loginWithGoogle(){
